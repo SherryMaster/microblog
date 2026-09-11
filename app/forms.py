@@ -4,6 +4,13 @@ from wtforms.validators import DataRequired, Email, EqualTo, Length, ValidationE
 
 from app.models import User
 
+
+class EmptyForm(FlaskForm):
+    """A CSRF-protected form with only a submit button."""
+
+    submit = SubmitField('Submit')
+
+
 class LoginForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
     password = PasswordField('Password', validators=[DataRequired()])
